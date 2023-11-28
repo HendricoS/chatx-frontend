@@ -1,0 +1,82 @@
+.wrapper-admin {
+  padding-bottom: 27.5em;
+}
+
+.web-h2-admin {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--secondary-color);
+  padding-top: 5em;
+  padding-bottom: 1em;
+  text-align: center;
+}
+
+.wrapper-admin-child {
+  text-align: center;
+}
+
+.web-input-admin {
+  width: 20em;
+  text-align: center;
+  margin-top: 0.5em;
+  padding: 1em;
+  border-radius: 0.5em;
+  border: 0.15em solid var(--primary-color);
+  font-weight: bold;
+}
+
+.web-label-admin {
+  display: block;
+  color: var(--text-color);
+  font-weight: bold;
+  margin-top: 1em;
+}
+
+.admin-p {
+  font-style: italic;
+  color: var(--text-color);
+  padding-bottom: 1em;
+  text-align: center;
+}
+
+/* Admin panel styling */
+.admin-panel-main-wrapper {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 30em;
+}
+
+.admin-panel-child-wrapper {
+  text-align: center;
+}
+
+.ul-admin {
+  list-style: none;
+  padding: 0;
+}
+
+.li-admin {
+  margin-bottom: 1em;
+  color: var(--text-color);
+}
+
+.sign-out-wrapper {
+  padding-top: 5em;
+}
+
+.button-admin {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 0.5em;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.5s ease-in-out;
+  margin-left: 3em;
+}
+
+.button-admin:hover {
+  background-color: var(--secondary-color);
+}

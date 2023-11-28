@@ -1,0 +1,106 @@
+.wrapper-web-messages {
+  padding-top: 5em;
+  padding-bottom: 11.5em;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.wrapper-msg-log {
+  padding-top: 2.5em;
+  text-align: center;
+}
+
+.msg-h2 {
+  color: var(--secondary-color);
+  padding-bottom: 0.1em;
+}
+
+.msg-hr {
+  width: 30em;
+  margin: 0 auto;
+  padding-bottom: 0.5em;
+  border: none;
+  border-top: 0.2em solid var(--secondary-color);
+}
+
+.msg-ul {
+  text-align: left;
+  margin: 0 auto;
+  max-width: 30em;
+}
+
+.msg-li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--text-color);
+  line-height: 2em;
+  padding-right: 1em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.342);
+}
+
+.msg-delete {
+  background-color: #dc3545;
+  transition: background-color 0.5s ease-in-out;
+  border-radius: 50%;
+  width: 2em;
+  height: 2em;
+  font-size: 1rem;
+  color: white;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.msg-delete:hover {
+  background-color: rgb(255, 0, 0);
+}
+
+.user-info {
+  padding-top: 1.5em;
+}
+
+.user-p {
+  font-size: 1.2rem;
+  color: var(--text-color);
+  font-weight: bold;
+}
+
+.txt-area-wrapper {
+  padding-top: 1.5em;
+}
+
+.txt-area {
+  padding: 0.5em;
+  width: 20em;
+  border-radius: 0.5em;
+  margin-top: 0.5em;
+  border: 0.15em solid var(--primary-color);
+  font-weight: bold;
+}
+
+.txt-btn {
+  padding: 0.5em;
+  margin-left: 0.5em;
+  border-radius: 0.5em;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  font-weight: bold;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.txt-btn:hover {
+  background-color: var(--hover-text);
+}
+
+.sign-out-wrapper {
+  padding-top: 2em;
+}
+
+.sign-out-btn {
+  border-radius: 0.5em;
+  font-weight: bold;
+}

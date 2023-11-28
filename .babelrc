@@ -1,0 +1,13 @@
+// .babelrc
+
+// Babel configuration file
+
+{
+  // Use preset-env for modern JavaScript features based on target environments
+  "presets": [
+    "@babel/preset-env",
+    
+    // Use preset-react for handling React JSX code
+    ["@babel/preset-react", { "runtime": "automatic" }]
+  ]
+}

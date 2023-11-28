@@ -1,0 +1,146 @@
+/* Other CSS Imports */
+@import url("./css/Footer.css");
+@import url("./css/password.css");
+@import url("./css/messages.css");
+@import url("./css/admin.css");
+
+/* Global CSS */
+:root {
+  font-size: 16px;
+  --primary-color: #1c2228;
+  --secondary-color: #fee715;
+  --text-color: whitesmoke;
+  --hover-text: #4f5459;
+  --transparent-one: #1c2228f5;
+  --transparent-two: #fee715d7;
+}
+
+body {
+  background: linear-gradient(
+    to bottom,
+    var(--transparent-one),
+    var(--transparent-two)
+  );
+}
+
+.wrapper-web-nav {
+  background-color: var(--secondary-color);
+  padding: 1em;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-bottom-right-radius: 0.5em;
+  border-bottom-left-radius: 0.5em;
+}
+
+.top-link {
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: 0.7s ease-in-out;
+}
+
+.top-link:hover {
+  color: var(--hover-text);
+  transform: scale(1.1);
+}
+
+a {
+  text-decoration: none !important;
+}
+
+a:hover {
+  text-decoration: underline var(--hover-text) !important;
+}
+
+.wrapper-web-reg {
+  padding-top: 1.8em;
+  padding-bottom: 16.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.wrapper-web-log {
+  padding-top: 1.8em;
+  padding-bottom: 5.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.wrapper-child-reg {
+  background-color: var(--secondary-color);
+  margin-top: 0.5em;
+  padding: 2em;
+  border-radius: 0.5em;
+}
+
+.web-h1,
+.web-h2 {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.web-p {
+  font-style: italic;
+  color: var(--primary-color);
+  padding-top: 0.5em;
+}
+
+.web-label {
+  padding-top: 1em;
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.web-input {
+  width: 20em;
+  text-align: center;
+  margin-top: 0.5em;
+  padding: 1em;
+  border-radius: 0.5em;
+  border: 0.15em solid var(--primary-color);
+  font-weight: bold;
+}
+
+.web-btn {
+  padding: 0.5em 1.5em;
+  margin-top: 1.5em;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border-radius: 0.5em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.7s ease-in-out;
+}
+
+.web-btn:hover {
+  background-color: var(--hover-text);
+  transform: scale(1.1);
+}
+
+/* Image / log styling */
+.image-wrapper {
+  padding-top: 1.5em;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.web-logo {
+  width: 12em;
+  border-radius: 0.5em;
+}
+
+/* Messages styling */
+.success-message {
+  color: green;
+}
+
+.error-message {
+  color: red;
+}
