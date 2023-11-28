@@ -24,12 +24,6 @@ api.interceptors.response.use(
   }
 );
 
-// // Determine the base URL based on the environment
-// const baseURL =
-//   process.env.REACT_APP_API_BASE_URL ||
-//   "https://chatx-backend-8tb3.onrender.com" ||
-//   "http://localhost:5000";
-
 // Function to register a new user
 export const registerUser = async (userData) => {
   try {

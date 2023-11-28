@@ -99,7 +99,7 @@ const Login = () => {
           {/* App logo */}
           <img
             className="web-logo"
-            src={process.env.PUBLIC_URL + "/images/chatx-logo.jpg"}
+            src="/images/chatx-logo.jpg"
             alt="app-logo"
           />
         </div>
