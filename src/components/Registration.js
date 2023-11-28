@@ -4,7 +4,7 @@ import axios from "axios";
 
 // Axios instance for API calls
 const api = axios.create({
-  baseURL: "https://github.com/HendricoS/chatx-app.git", // Backend URL
+  baseURL: "https://chatx-backend-8tb3.onrender.com" || "http://localhost:5000", // Backend URL
 });
 
 // Registration component

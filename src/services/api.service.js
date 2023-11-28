@@ -3,7 +3,10 @@
 import axios from "axios";
 
 // Determine the base URL based on the environment
-const baseURL = process.env.REACT_APP_API_BASE_URL || "http://localhost:5000";
+const baseURL =
+  process.env.REACT_APP_API_BASE_URL ||
+  "https://chatx-backend-8tb3.onrender.com" ||
+  "http://localhost:5000";
 
 // const baseURL =
 //   process.env.NODE_ENV ===
