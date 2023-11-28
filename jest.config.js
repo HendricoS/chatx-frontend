@@ -18,5 +18,9 @@ module.exports = {
 
     // Mock bootstrap CSS file by mapping it to an empty module
     "^bootstrap/dist/css/bootstrap.min.css$": "<rootDir>/src/empty-module.js",
+
+    // Mock image imports by mapping them to identity-obj-proxy
+    "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
+      "identity-obj-proxy",
   },
 };
