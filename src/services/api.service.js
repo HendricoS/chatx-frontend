@@ -2,22 +2,20 @@
 
 import axios from "axios";
 
-// Determine the base URL based on the environment variable
-const isProduction = process.env.NODE_ENV === "production";
-
-// Axios with the base URL for the backend
+// Create an instance of axios with the base URL for the backend
 const api = axios.create({
-  baseURL: isProduction
-    ? "https://chatx-backend-8tb3.onrender.com"
-    : "http://localhost:5000", // Backend URL
+  baseURL:
+    process.env.REACT_APP_API_BASE_URL ||
+    "https://chatx-backend-8tb3.onrender.com" ||
+    "http://localhost:5000",
 });
 
-// Response interceptor to catch errors
+// Add a response interceptor to catch errors
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    // If the production backend is not responding, fallback to localhost
-    if (isProduction && !error.response) {
+    // If there's an error and no response, fallback to localhost
+    if (!error.response) {
       api.defaults.baseURL = "http://localhost:5000";
       return api(error.config);
     }

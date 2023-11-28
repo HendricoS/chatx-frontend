@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const isProduction = process.env.NODE_ENV === "production";
-
+// Create an instance of axios with the base URL for the backend
 const api = axios.create({
-  baseURL: isProduction
-    ? "https://chatx-backend-8tb3.onrender.com"
-    : "http://localhost:5000", // Backend URL
+  baseURL:
+    process.env.REACT_APP_API_BASE_URL ||
+    "https://chatx-backend-8tb3.onrender.com" ||
+    "http://localhost:5000",
 });
 
 const AdminLogin = () => {
