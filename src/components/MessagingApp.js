@@ -7,6 +7,8 @@ import {
 } from "../services/api.service";
 import SignOut from "./SignOut";
 
+import AppLogo from "./appLogo";
+
 // MessagingApp component
 function MessagingApp() {
   // State to store messages and the new message being composed
@@ -94,11 +96,7 @@ function MessagingApp() {
           <div className="wrapper-web-messages-child">
             <div className="image-wrapper">
               {/* App logo */}
-              <img
-                className="web-logo"
-                src="/images/chatx-logo.jpg"
-                alt="app-logo"
-              />
+              <AppLogo />
             </div>
             <div className="user-info">
               {/* Display the username */}
