@@ -3,27 +3,34 @@
 import axios from "axios";
 
 // Determine the base URL based on the environment variable
-const baseURL =
-  process.env.REACT_APP_API_BASE_URL ||
-  (process.env.NODE_ENV === "production"
-    ? "https://chatx-backend-8tb3.onrender.com"
-    : "http://localhost:5000");
+const isProduction = process.env.NODE_ENV === "production";
 
-// Create an instance of axios with the base URL for the backend
+// Axios with the base URL for the backend
 const api = axios.create({
-  baseURL,
+  baseURL: isProduction
+    ? "https://chatx-backend-8tb3.onrender.com"
+    : "http://localhost:5000", // Backend URL
 });
+
+// Response interceptor to catch errors
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    // If the production backend is not responding, fallback to localhost
+    if (isProduction && !error.response) {
+      api.defaults.baseURL = "http://localhost:5000";
+      return api(error.config);
+    }
+
+    return Promise.reject(error);
+  }
+);
 
 // // Determine the base URL based on the environment
 // const baseURL =
 //   process.env.REACT_APP_API_BASE_URL ||
 //   "https://chatx-backend-8tb3.onrender.com" ||
 //   "http://localhost:5000";
-
-// // Create an instance of axios with the base URL for the backend
-// const api = axios.create({
-//   baseURL,
-// });
 
 // Function to register a new user
 export const registerUser = async (userData) => {
