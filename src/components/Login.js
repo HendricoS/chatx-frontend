@@ -4,7 +4,7 @@ import axios from "axios";
 
 import AppLogo from "./appLogo";
 
-// Create an instance of axios with the base URL for the backend
+// Axios with the base URL for the backend
 const api = axios.create({
   baseURL:
     process.env.REACT_APP_API_BASE_URL ||

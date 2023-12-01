@@ -46,9 +46,13 @@ const AdminLogin = () => {
       return;
     }
 
+    // Specify the role as "admin" during registration
+    formData.role = "admin";
+
     try {
       // Send a POST request to the backend for admin login
-      const response = await api.post("/admin-login", formData);
+      // const response = await api.post("/admin-login", formData);
+      const response = await api.post("/register", formData);
 
       // Display the token received from the backend (for testing purposes)
       console.log(response.data.token);

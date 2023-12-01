@@ -4,18 +4,13 @@ import axios from "axios";
 
 import AppLogo from "./appLogo";
 
-// Create an instance of axios with the base URL for the backend
+// Axios with the base URL for the backend
 const api = axios.create({
   baseURL:
     process.env.REACT_APP_API_BASE_URL ||
     "https://chatx-backend-8tb3.onrender.com" ||
     "http://localhost:5000",
 });
-
-// Axios instance for API calls
-// const api = axios.create({
-//   baseURL: "https://chatx-backend-8tb3.onrender.com" || "http://localhost:5000", // Backend URL
-// });
 
 // Registration component
 const Registration = () => {
