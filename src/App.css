@@ -144,3 +144,7 @@ a:hover {
 .error-message {
   color: red;
 }
+
+.check-box-label {
+  padding-top: 1em;
+}
