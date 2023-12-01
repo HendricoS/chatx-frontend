@@ -21,6 +21,7 @@ const Registration = () => {
   const [formData, setFormData] = useState({
     username: "",
     password: "",
+    isAdmin: false, // New field to indicate admin status
   });
 
   // State to manage error messages
@@ -29,6 +30,10 @@ const Registration = () => {
   // Function to handle form input changes
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleCheckboxChange = (e) => {
+    setFormData({ ...formData, isAdmin: e.target.checked });
   };
 
   // Function to handle form submission
@@ -137,6 +142,21 @@ const Registration = () => {
                       required
                       placeholder="password..."
                     />
+                  </div>
+
+                  {/* Admin Section */}
+                  <div className="row">
+                    <div className="col-lg">
+                      <label>
+                        Are you registering as an admin?
+                        <input
+                          type="checkbox"
+                          name="isAdmin"
+                          checked={formData.isAdmin}
+                          onChange={handleCheckboxChange}
+                        />
+                      </label>
+                    </div>
                   </div>
                 </div>
                 <div className="row">
