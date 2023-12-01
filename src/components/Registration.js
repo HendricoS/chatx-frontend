@@ -147,7 +147,7 @@ const Registration = () => {
                   {/* Checkbox for admin registration */}
                   <div className="web-checkbox">
                     <label>
-                      Admin:
+                      Tick the box to register as an Admin:
                       <input
                         type="checkbox"
                         name="isAdmin"
