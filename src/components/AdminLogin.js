@@ -23,6 +23,9 @@ const AdminLogin = () => {
   // State to manage error messages
   const [errorMessage, setErrorMessage] = useState("");
 
+  // State to manage the login status
+  const [loggingIn, setLoggingIn] = useState(false);
+
   // Handler function for input changes in the form
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -33,16 +36,19 @@ const AdminLogin = () => {
   // Handler function for form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoggingIn(true); // Set logging in status to true
 
     // Check if the username contains "@gmail.com"
     if (!formData.username.includes("@gmail.com")) {
       setErrorMessage("Please enter a valid Gmail account.");
+      setLoggingIn(false); // Reset logging in status
       return;
     }
 
     // Check if the password meets the minimum length requirement
     if (formData.password.length < 6) {
       setErrorMessage("Password must be at least 6 characters long.");
+      setLoggingIn(false); // Reset logging in status
       return;
     }
 
@@ -64,6 +70,8 @@ const AdminLogin = () => {
       console.error("Admin Login Error:", error.message);
       // Handle login error, show an error message, etc.
       setErrorMessage("Invalid username or password. Please try again.");
+    } finally {
+      setLoggingIn(false); // Reset logging in status
     }
   };
 
@@ -110,11 +118,15 @@ const AdminLogin = () => {
                   />
                 </div>
               </div>
-              {/* Submit button */}
+              {/* Submit button with a conditional message */}
               <div className="row">
                 <div className="col-lg">
-                  <button className="web-btn" type="submit">
-                    Login
+                  <button
+                    className="web-btn"
+                    type="submit"
+                    disabled={loggingIn}
+                  >
+                    {loggingIn ? "Logging In..." : "Login"}
                   </button>
                 </div>
               </div>

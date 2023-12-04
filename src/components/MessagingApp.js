@@ -16,6 +16,7 @@ function MessagingApp() {
   const [newMessage, setNewMessage] = useState("");
   const [username, setUsername] = useState("");
   const [loading, setLoading] = useState(false); // New loading state
+  const [sending, setSending] = useState(false); // New sending state
 
   // useEffect to fetch messages when the component mounts and periodically
   useEffect(() => {
@@ -49,6 +50,8 @@ function MessagingApp() {
   // Function to send a new message
   const handleSendMessage = async () => {
     try {
+      setSending(true); // Set sending status to true
+
       // Send a new message to the server
       const response = await sendMessage({ text: newMessage });
       // Update the local state with the new message
@@ -57,6 +60,8 @@ function MessagingApp() {
       setNewMessage("");
     } catch (error) {
       console.error("Error sending message:", error);
+    } finally {
+      setSending(false); // Reset sending status
     }
   };
 
@@ -143,6 +148,11 @@ function MessagingApp() {
                 {loading ? "Deleting message..." : ""}
               </div>
 
+              {/* Sending messages */}
+              <div className="send-msg">
+                {sending ? "Sending message..." : ""}
+              </div>
+
               {/* Section for composing and sending a new message */}
               <div className="txt-area-wrapper">
                 {/* Input field for typing a new message */}
@@ -154,8 +164,12 @@ function MessagingApp() {
                 ></textarea>
 
                 {/* Button to send the new message */}
-                <button className="txt-btn" onClick={handleSendMessage}>
-                  Send Message
+                <button
+                  className="txt-btn"
+                  onClick={handleSendMessage}
+                  disabled={sending}
+                >
+                  {sending ? "Sending..." : "Send Message"}
                 </button>
               </div>
             </div>

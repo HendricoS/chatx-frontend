@@ -27,6 +27,9 @@ const Registration = () => {
   // State to manage error messages
   const [errorMessage, setErrorMessage] = useState("");
 
+  // State to manage the registration status
+  const [registering, setRegistering] = useState(false);
+
   // Function to handle form input changes
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -49,6 +52,8 @@ const Registration = () => {
     }
 
     try {
+      setRegistering(true); // Set registering status to true
+
       // Send registration request to the backend
       const response = await api.post("/register", formData);
       console.log(response.data.message); // Display registration success message
@@ -70,6 +75,8 @@ const Registration = () => {
         // Handle other registration errors, show an error message, etc.
         setErrorMessage("Error during registration. Username already exists.");
       }
+    } finally {
+      setRegistering(false); // Reset registering status
     }
   };
 
@@ -145,9 +152,13 @@ const Registration = () => {
                 </div>
                 <div className="row">
                   <div className="col-lg">
-                    {/* Submit button for registration */}
-                    <button className="web-btn" type="submit">
-                      Register
+                    {/* Submit button for registration with a conditional message */}
+                    <button
+                      className="web-btn"
+                      type="submit"
+                      disabled={registering}
+                    >
+                      {registering ? "Registering..." : "Register"}
                     </button>
                   </div>
                 </div>
