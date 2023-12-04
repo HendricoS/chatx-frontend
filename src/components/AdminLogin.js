@@ -209,7 +209,7 @@ const AdminLogin = () => {
                     name="username"
                     onChange={handleChange}
                     required
-                    placeholder="admin@gmail.com"
+                    placeholder="example@gmail.com"
                     value={formData.username} // Set the hardcoded value
                   />
                 </div>
@@ -222,7 +222,7 @@ const AdminLogin = () => {
                     name="password"
                     onChange={handleChange}
                     required
-                    placeholder="admin1234"
+                    placeholder="password"
                     value={formData.password} // Set the hardcoded value
                   />
                 </div>
