@@ -143,8 +143,8 @@ const api = axios.create({
 const AdminLogin = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    username: "",
-    password: "",
+    username: "admin@gmail.com", // Hardcoded admin username
+    password: "admin1234", // Hardcoded admin password
   });
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -209,7 +209,8 @@ const AdminLogin = () => {
                     name="username"
                     onChange={handleChange}
                     required
-                    placeholder="admin@example.com"
+                    placeholder="admin@gmail.com"
+                    value={formData.username} // Set the hardcoded value
                   />
                 </div>
                 {/* Password input field */}
@@ -221,7 +222,8 @@ const AdminLogin = () => {
                     name="password"
                     onChange={handleChange}
                     required
-                    placeholder="password..."
+                    placeholder="admin1234"
+                    value={formData.password} // Set the hardcoded value
                   />
                 </div>
               </div>

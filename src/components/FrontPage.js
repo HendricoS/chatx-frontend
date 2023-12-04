@@ -10,20 +10,24 @@ const FrontPage = () => {
       <div className="container">
         <div className="wrapper-web-nav">
           <div className="row">
-            <div className="col-lg-3"></div>
-            <div className="col-lg-3">
+            <div className="col-lg-4">
               {/* Link to the Registration page */}
-              <Link to="/">
+              <Link to="/registration">
                 <span className="top-link">Registration</span>
               </Link>
             </div>
-            <div className="col-lg-3">
+            <div className="col-lg-4">
+              {/* Link to the Login page */}
+              <Link to="/login">
+                <span className="top-link">Login</span>
+              </Link>
+            </div>
+            <div className="col-lg-4">
               {/* Link to the Admin Login page */}
               <Link to="/admin-login">
                 <span className="top-link">Admin Login</span>
               </Link>
             </div>
-            <div className="col-lg-3"></div>
           </div>
         </div>
         {/* Login page information */}
@@ -49,17 +53,11 @@ const FrontPage = () => {
               and allocate them to different team members and assign a deadline
               and description of the task.
             </p>
-            <p className="web-p">Password can be changed once logged-in</p>
+            <p className="web-p">
+              If you don't have account yet please register before attempting to
+              login
+            </p>
             {/* Display error message if there is one */}
-
-            {/* Submit button */}
-            <div className="row">
-              <div className="col-lg">
-                <button className="web-btn" type="submit">
-                  Login
-                </button>
-              </div>
-            </div>
           </div>
         </div>
       </div>
