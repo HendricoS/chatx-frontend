@@ -36,6 +36,13 @@
   color: whitesmoke;
 }
 
+.send-msg {
+  padding: 0.5em 0;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: whitesmoke;
+}
+
 .msg-li {
   display: flex;
   justify-content: left;
