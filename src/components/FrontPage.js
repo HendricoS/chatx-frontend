@@ -54,8 +54,8 @@ const FrontPage = () => {
               and description of the task.
             </p>
             <p className="web-p">
-              If you don't have account yet please register before attempting to
-              login
+              If you don't have an account yet please register before attempting
+              to login
             </p>
             {/* Display error message if there is one */}
           </div>
