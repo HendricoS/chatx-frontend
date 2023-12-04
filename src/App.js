@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 // Import your custom components
+import FrontPage from "./components/FrontPage";
 import Registration from "./components/Registration";
 import Login from "./components/Login";
 import PasswordChange from "./components/PasswordChange";
@@ -29,8 +30,9 @@ function App() {
 
         {/* Define the routes using the Routes component */}
         <Routes>
+          <Route path="/" element={<FrontPage />} />
           {/* Route for the Registration component */}
-          <Route path="/" element={<Registration />} />
+          <Route path="/registration" element={<Registration />} />
 
           {/* Route for the Login component */}
           <Route path="/login" element={<Login />} />

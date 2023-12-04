@@ -32,11 +32,6 @@ const Registration = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Function to handle checkbox changes
-  const handleCheckboxChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.checked });
-  };
-
   // Function to handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -143,21 +138,6 @@ const Registration = () => {
                       required
                       placeholder="password..."
                     />
-                  </div>
-                  {/* Checkbox for admin registration */}
-                  <div className="web-checkbox">
-                    <label className="check-box-label">
-                      <p className="web-p">
-                        Tick the box to register as an Admin:
-                      </p>
-
-                      <input
-                        type="checkbox"
-                        name="isAdmin"
-                        checked={formData.isAdmin}
-                        onChange={handleCheckboxChange}
-                      />
-                    </label>
                   </div>
                 </div>
                 <div className="row">
