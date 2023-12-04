@@ -26,6 +26,9 @@ const Login = () => {
   // State to manage error messages
   const [errorMessage, setErrorMessage] = useState("");
 
+  // Loading state to indicate whether the login request is ongoing
+  const [loading, setLoading] = useState(false);
+
   // Handler function for input changes in the form
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -34,6 +37,10 @@ const Login = () => {
   // Handler function for form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Set loading to true when starting the login
+    setLoading(true);
+
     try {
       // Send a POST request to the backend for user login
       const response = await api.post("/login", formData);
@@ -71,6 +78,9 @@ const Login = () => {
           "An unexpected error occurred. Please try again later."
         );
       }
+    } finally {
+      // Set loading back to false when the login process is complete (whether it succeeds or fails)
+      setLoading(false);
     }
   };
 
@@ -80,20 +90,23 @@ const Login = () => {
       <div className="container">
         <div className="wrapper-web-nav">
           <div className="row">
-            <div className="col-lg-3"></div>
-            <div className="col-lg-3">
-              {/* Link to the Registration page */}
+            <div className="col-lg-4">
               <Link to="/">
+                <span className="top-link">About</span>
+              </Link>
+            </div>
+            <div className="col-lg-4">
+              {/* Link to the Registration page */}
+              <Link to="/registration">
                 <span className="top-link">Registration</span>
               </Link>
             </div>
-            <div className="col-lg-3">
+            <div className="col-lg-4">
               {/* Link to the Admin Login page */}
               <Link to="/admin-login">
                 <span className="top-link">Admin Login</span>
               </Link>
             </div>
-            <div className="col-lg-3"></div>
           </div>
         </div>
         {/* Login page information */}
@@ -144,8 +157,12 @@ const Login = () => {
                 {/* Submit button */}
                 <div className="row">
                   <div className="col-lg">
-                    <button className="web-btn" type="submit">
-                      Login
+                    <button
+                      className="web-btn"
+                      type="submit"
+                      disabled={loading}
+                    >
+                      {loading ? "Logging in..." : "Login"}
                     </button>
                   </div>
                 </div>

@@ -15,6 +15,7 @@ function MessagingApp() {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
   const [username, setUsername] = useState("");
+  const [loading, setLoading] = useState(false); // New loading state
 
   // useEffect to fetch messages when the component mounts and periodically
   useEffect(() => {
@@ -62,12 +63,17 @@ function MessagingApp() {
   // Function to delete a message
   const handleDeleteMessage = async (messageId) => {
     try {
+      // Set loading to true when starting the deletion
+      setLoading(true);
       // Delete the message on the server
       await deleteMessage(messageId);
       // Update the local state by filtering out the deleted message
       setMessages(messages.filter((message) => message._id !== messageId));
     } catch (error) {
       console.error("Error deleting message:", error);
+    } finally {
+      // Set loading back to false when the deletion is complete (whether it succeeds or fails)
+      setLoading(false);
     }
   };
 
@@ -118,26 +124,35 @@ function MessagingApp() {
                       message.sender.replace("@gmail.com", "")
                     )}
                     : {message.text} {/* Button to delete the message */}
-                    <button
-                      className="msg-delete"
-                      onClick={() => handleDeleteMessage(message._id)}
-                    >
-                      X
-                    </button>
+                    <div className="msg-delete-wrapper">
+                      <button
+                        className="msg-delete"
+                        onClick={() => handleDeleteMessage(message._id)}
+                        disabled={loading} // Disable the button when loading is true
+                      >
+                        X
+                      </button>
+                    </div>
                   </li>
                 ))}
               </ul>
             </div>
             <div>
+              {/* Deleting messages */}
+              <div className="dlt-msg">
+                {loading ? "Deleting message..." : ""}
+              </div>
+
               {/* Section for composing and sending a new message */}
               <div className="txt-area-wrapper">
                 {/* Input field for typing a new message */}
-                <input
+                <textarea
                   className="txt-area"
                   value={newMessage}
                   onChange={(e) => setNewMessage(e.target.value)}
                   placeholder="Message"
-                ></input>
+                ></textarea>
+
                 {/* Button to send the new message */}
                 <button className="txt-btn" onClick={handleSendMessage}>
                   Send Message

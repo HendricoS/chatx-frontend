@@ -80,20 +80,23 @@ const Registration = () => {
       <div className="container">
         <div className="wrapper-web-nav">
           <div className="row">
-            <div className="col-lg-3"></div>
-            <div className="col-lg-3">
+            <div className="col-lg-4">
+              <Link to="/">
+                <span className="top-link">About</span>
+              </Link>
+            </div>
+            <div className="col-lg-4">
               {/* Link to the user login page */}
               <Link to="/login">
                 <span className="top-link">User Login</span>
               </Link>
             </div>
-            <div className="col-lg-3">
+            <div className="col-lg-4">
               {/* Link to the admin login page */}
               <Link to="/admin-login">
                 <span className="top-link">Admin Login</span>
               </Link>
             </div>
-            <div className="col-lg-3"></div>
           </div>
         </div>
         {/* Registration page information */}
